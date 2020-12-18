@@ -6,7 +6,7 @@ class Home extends React.Component<> {
   articles: Article[] = useSelector((state: ArticleState) => state.articles, shallowEqual)
   render() {
     return (
-      
+      <>
     )
   }
 }
