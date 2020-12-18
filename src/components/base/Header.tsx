@@ -1,11 +1,11 @@
 import React from "react";
 import { HeaderTabEnum } from "./base.constant";
-import SearchForm from './SearchForm'
-import { Link } from 'react-router-dom';
+import SearchForm from "./SearchForm";
+import { Link } from "react-router-dom";
 
 type Props = {
-  appName: string
-}
+  appName: string;
+};
 
 class Header extends React.Component<Props> {
   render() {
