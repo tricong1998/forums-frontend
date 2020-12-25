@@ -10,12 +10,12 @@ const ArticlePreview = (props: {
   </div>)
 }
 class Home extends React.Component {
-  const articles: Article[] = useSelector((state: ArticleState) => state.articles, shallowEqual)
+  articles: Article[] = useSelector((state: ArticleState) => state.articles, shallowEqual)
   render() {
     return (
       <div>
         {this.articles.map(article => {
-          return <ArticlePreview article></ArticlePreview>
+          return <ArticlePreview article={article}></ArticlePreview>
         })}
       </div>
     )

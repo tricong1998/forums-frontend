@@ -1,1 +1,3 @@
-export async function getArticle()
+export async function getArticle() {
+  filter: Parameters<typeof>
+}
