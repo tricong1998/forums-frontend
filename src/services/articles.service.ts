@@ -6,5 +6,5 @@ const apiArticleService = ``;
 
 export const getArticles = (filter: ArticleFilter) => {
   const getArticleServiceUrl = `${apiArticleService}/articles`
-  return fetchPaginatedData<Article[]>(getArticleServiceUrl, filter)
+  return fetchPaginatedData<Article>(getArticleServiceUrl, filter)
 }
