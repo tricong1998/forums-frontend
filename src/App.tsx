@@ -9,7 +9,7 @@ import Home from "./components/Home/Home";
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <div className="App grid grid-rows-3">
       <Header appName='Forums'/>
       <Switch>
         <Route exact path='/' component={Home} />
