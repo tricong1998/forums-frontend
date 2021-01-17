@@ -10,7 +10,8 @@ type Props = {
 class Header extends React.Component<Props> {
   render() {
     return (
-      <nav className="nav">
+      // <nav className="nav">
+      <header>
         <div className="flex flex-row py-4 mr-auto ml-auto container items-center">
           <div className="w-1/2 flex flex-row">
             <Link className="mr-16" to="#">
@@ -37,7 +38,9 @@ class Header extends React.Component<Props> {
             </Link>
           </div>
         </div>
-      </nav>
+      </header>
+
+      // </nav>
     );
   }
 }

@@ -1,6 +1,7 @@
 .App {
   /* text-align: center; */
   /* display: grid; */
+  grid-template-rows: auto auto auto;
 }
 
 .App-logo {
@@ -36,4 +37,11 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.search-form {
+  padding-top: 0.45rem;
+  padding-right: calc(45px + 1.5rem);
+  padding-bottom: 0.45rem;
+  padding-left: 1.5rem;
 }
