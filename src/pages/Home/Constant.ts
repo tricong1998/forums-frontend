@@ -4,3 +4,8 @@ export enum HomeTabs {
   TRENDING = "Trending",
   VIDEOS = "Videos",
 }
+
+
+export enum Path {
+  NEWEST = '/newest'
+}

@@ -1,14 +1,9 @@
-import { ArticleState, Article } from "../Article/Article.type";
 import React from "react";
-import { useSelector, shallowEqual, useDispatch } from "react-redux";
-import ArticlesList from "../Article/ArticlesList";
-import { HeaderTabEnum } from "../base/base.constant";
-import { Link } from "react-router-dom";
-import { HomeTabs } from "./Constant";
+import { Link, Route, Switch } from "react-router-dom";
+import { HomeTabs, Path } from "./Constant";
+import NewestActicles from "./components/Newest";
+import NoMatch from "../../components/base/NotFound.pages";
 
-const ArticlePreview = (props: { article: Article }) => {
-  return <div></div>;
-};
 class Home extends React.Component {
   render() {
     return (
@@ -22,7 +17,7 @@ class Home extends React.Component {
         </div>
         <div className="mr-auto ml-auto flex py-4 bg-blue-900">
           <div className="mr-auto ml-auto container">
-            <Link className="mr-1 ml-1" to="#">
+            <Link className="mr-1 ml-1" to={Path.NEWEST}>
               {HomeTabs.NEWEST}
             </Link>
             <Link className="mr-1 ml-1" to="#">
@@ -36,7 +31,17 @@ class Home extends React.Component {
             </Link>
           </div>
         </div>
-        <ArticlesList></ArticlesList>
+        <div className="flex container">
+          <div className="col-lg-9">
+            <Switch>
+              <Route path={Path.NEWEST} component={NewestActicles} />
+              <Route path="*">
+                <NoMatch />
+              </Route>
+            </Switch>
+          </div>
+          <div className="col-lg-3">Newest questions</div>
+        </div>
       </div>
     );
   }

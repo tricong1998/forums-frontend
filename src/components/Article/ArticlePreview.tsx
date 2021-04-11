@@ -7,23 +7,24 @@ type ArticlePreviewProp = {
 
 const ArticlePreview = (props: ArticlePreviewProp) => {
   const article = props.article;
-  const authorSummary = article.author;
+  const authorSummary = article?.author;
   return (
-    <div>
-      <div className="img">
-        <img src={authorSummary.avatar} alt="" />
-      </div>
-      <div>
-        <div className="author">
-          <div className="name">{authorSummary.userName}</div>
-          <div className="article-created">{article.createdAt}</div>
+    <div className="flex">
+      {authorSummary?.avatar && (
+        <div className="img w-10 h-10">
+          <img src={authorSummary.avatar} alt="" />
+        </div>
+      )}
+      <div className="w-full">
+        <div className="author flex">
+          <div className="name">{authorSummary?.userName}</div>
+          <div className="article-created">{article?.createdAt.toString()}</div>
         </div>
         <div className="article">
-          <div>{article.title}</div>
-          {article.tags &&
-            article.tags.length &&
+          <div>{article?.title}</div>
+          {article.tags?.length &&
             article.tags.forEach((tag) => {
-              return <div className="tag">{tag}</div>;
+              return (<div className="tag">{tag}</div>);
             })}
         </div>
       </div>

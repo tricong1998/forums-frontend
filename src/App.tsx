@@ -1,18 +1,15 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/base/Header";
 import { Switch, Route } from "react-router-dom";
-import { useSelector, shallowEqual } from "react-redux";
-import { ArticleState, Article } from "./components/Article/Article.type";
-import Home from "./components/Home/Home";
+import Home from "./pages/Home/Home";
 
 const App: React.FC = () => {
   return (
     <div className="App grid grid-rows-3">
       <Header appName='Forums'/>
       <Switch>
-        <Route exact path='/' component={Home} />
+        <Route path='/' component={Home} />
       </Switch>
     </div>
   );
