@@ -12,6 +12,13 @@ export type Article = {
   tags: string[];
   createdAt: Date;
   updatedAt: Date;
+  stats: {
+    views: number;
+    clips: number;
+    comments: number;
+    score: number;
+  };
+  timeToRead: number;
 };
 
 export type ArticleState = {
