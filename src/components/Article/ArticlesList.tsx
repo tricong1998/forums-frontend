@@ -22,6 +22,7 @@ const ArticlesList = ({
   }
   return (
     <div>
+      <div className="flex justify-end"><span>Edit view</span></div>
       {data.items.map((element) => {
         return (
           <ArticlePreview article={element} key={element.slug}></ArticlePreview>

@@ -1,7 +1,8 @@
 import { Article } from "./Article.type";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiCopy, FiEye } from "react-icons/fi";
+import { IconType } from "react-icons";
 
 type ArticlePreviewProp = {
   article: Article;
@@ -41,7 +42,7 @@ const ArticlePreview = (props: ArticlePreviewProp) => {
             <FiCopy />
           </div>
         </div>
-        <div className="article mb-1 flex">
+        <div className="article mb-1 flex flex-wrap">
           <div>
             <Link to="#" className="mr-1">
               <span className="mr-1">{article?.title}</span>
@@ -49,20 +50,76 @@ const ArticlePreview = (props: ArticlePreviewProp) => {
           </div>
           <div>
             {article.tags?.length &&
-              article.tags.map((tag) => (
-                <Link to="#" className="mr-1">
+              article.tags.map((tag, key) => (
+                <Link to="#" className="mr-1" key={key}>
                   <span className="tag mr-1 text-xs bg-gray-300	">{tag}</span>
                 </Link>
               ))}
           </div>
         </div>
-        <div className="stats">
-          <span className="views mr-1"><FiEye></FiEye> {article?.stats.views || 0}</span>
-          <span className="clips mr-1">{article?.stats.clips || 0}</span>
-          <span className="comments mr-1">{article?.stats.comments || 0}</span>
-          <span className="comments mr-1">{article?.stats.score || 0}</span>
+        <div className="stats inline-flex justify-items-center align-middle">
+          <div className="views mr-1 inline-flex justify-items-center align-middle">
+            <StatElement
+              Icon={FiEye}
+              stat={article?.stats.views}
+              statName="Views"
+            ></StatElement>
+          </div>
+          <div className="views mr-1 inline-flex justify-items-center align-middle">
+            <StatElement
+              Icon={FiEye}
+              stat={article?.stats.clips}
+              statName="Clips"
+            ></StatElement>
+          </div>
+          <div className="views mr-1 inline-flex justify-items-center align-middle">
+            <StatElement
+              Icon={FiEye}
+              stat={article?.stats.comments}
+              statName="Comments"
+            ></StatElement>
+          </div>
+          <div className="views mr-1 inline-flex justify-items-center align-middle">
+            <StatElement
+              Icon={FiEye}
+              stat={article?.stats.score}
+              statName="Score"
+            ></StatElement>
+          </div>
         </div>
       </div>
+    </div>
+  );
+};
+
+const StatElement = ({
+  Icon,
+  stat,
+  statName,
+}: {
+  Icon: IconType;
+  stat: number;
+  statName: string;
+}) => {
+  const [hover, setHover] = useState(false);
+  const describeId = `describe-${statName}`;
+  return (
+    <div className="views mr-1 inline-flex justify-items-center align-middle"   aria-label={
+      `${statName}: ${stat}`
+    }>
+      <div
+        className="mr-1 justify-items-center align-middle h-full"
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+      >
+        <Icon style={{ verticalAlign: "bottom" }}></Icon>
+      </div>
+      <span>{stat || 0}</span>
+      {/* {hover && (
+        <div id={describeId}>
+          {statName}: {stat}
+        </div>
+      )} */}
     </div>
   );
 };

@@ -17,24 +17,24 @@ class Home extends React.Component {
         </div>
         <div className="mr-auto ml-auto flex py-4 bg-blue-900">
           <div className="mr-auto ml-auto container">
-            <Link className="mr-1 ml-1" to={Path.NEWEST}>
+            <Link className="mr-1 ml-1 text-white	" to={Path.NEWEST}>
               {HomeTabs.NEWEST}
             </Link>
-            <Link className="mr-1 ml-1" to="#">
+            <Link className="mr-1 ml-1 text-white	" to="#">
               {HomeTabs.SERIES}
             </Link>
-            <Link className="mr-1 ml-1" to="#">
+            <Link className="mr-1 ml-1 text-white	" to="#">
               {HomeTabs.TRENDING}
             </Link>
-            <Link className="mr-1 ml-1" to="#">
+            <Link className="mr-1 ml-1 text-white	" to="#">
               {HomeTabs.VIDEOS}
             </Link>
           </div>
         </div>
-        <div className="flex container">
-          <div className="col-lg-9">
+        <div className="flex container pt-10">
+          <div className="col-lg-9 mr-10">
             <Switch>
-              <Route path={Path.NEWEST} component={NewestActicles} />
+              <Route path={Path.NEWEST} component={NewestActicles} default={true} />
               <Route path="*">
                 <NoMatch />
               </Route>
