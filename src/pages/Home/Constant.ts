@@ -7,5 +7,7 @@ export enum HomeTabs {
 
 
 export enum Path {
-  NEWEST = '/newest'
+  POST= '/posts',
+  NEWEST = '/newest',
+  SERIES = '/series'
 }

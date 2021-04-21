@@ -1,7 +1,8 @@
 import React from "react";
 import { HeaderTabEnum } from "./base.constant";
 import SearchForm from "./SearchForm";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { Path } from "../../pages/Home/Constant";
 
 type Props = {
   appName: string;
@@ -14,19 +15,35 @@ class Header extends React.Component<Props> {
       <header>
         <div className="flex flex-row py-4 mr-auto ml-auto container items-center">
           <div className="w-1/2 flex flex-row">
-            <Link className="mr-16" to="#">
+            <NavLink
+              className="mr-16 text-gray-500"
+              activeClassName='text-black font-bold'
+              to='/'
+              >
               {this.props.appName}
-            </Link>
+            </NavLink>
             <div className="flex flex-row">
-              <Link className="mr-10" to="#">
+              <NavLink
+                className="mr-16 text-gray-500"
+                activeClassName='text-black font-bold'
+                to={Path.POST}
+              >
                 {HeaderTabEnum.POSTS}
-              </Link>
-              <Link className="mr-10" to="#">
+              </NavLink>
+              <NavLink
+                className="mr-16 text-gray-500"
+                activeClassName="text-black"
+                to="#"
+              >
                 {HeaderTabEnum.QUESTIONS}
-              </Link>
-              <Link className="mr-10" to="#">
+              </NavLink>
+              <NavLink
+                className="mr-16 text-gray-500"
+                activeClassName={"text-black"}
+                to="#"
+              >
                 {HeaderTabEnum.DISCUSSIONS}
-              </Link>
+              </NavLink>
             </div>
           </div>
           <div className="items-center flex-grow flex flex-row justify-end">
